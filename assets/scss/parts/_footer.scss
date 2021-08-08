@@ -1,0 +1,137 @@
+footer {
+  background-color: $yellow;
+  border-top: 1px solid $darkgray;
+  padding: 20px 0 0 0;
+  color: $black;
+
+  .container {
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+
+    @media (min-width: $breakpoint-large) {
+      justify-content: space-around;
+    }
+  }
+
+  .left {
+    padding: 0 15px;
+  }
+  .right {
+    padding: 0 15px 15px 15px;
+  }
+
+  // Site Name
+  .site-name {
+    font-size: 18px;
+    font-family: $copper;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+
+    @media (min-width: 375px) {
+      line-height: 1.6;
+      padding-top: 3px;
+    }
+    @media (min-width: $breakpoint-small) {
+      font-size: 30px;
+      line-height: 1.4;
+      letter-spacing: 1px;
+      margin-left: 2px;
+    }
+    @media (min-width: $breakpoint-medium) {
+      font-size: 24px;
+    }
+
+    a {
+      color: $black;
+      text-shadow: 0 0 2px $basewhite;
+    }
+  }//.site-name
+
+  .address {
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.2;
+    margin-top: 6px;
+    margin-bottom: 4px;
+    padding-left: 5px;
+
+    @media (min-width: $breakpoint-medium) {
+      font-size: 16px;
+    }
+  }//.address
+
+  .facebook {
+    color: darken($blue, 20);
+    font-size: 28px;
+    padding-left: 5px;
+  }
+  .email {
+    color: $gray;
+    font-size: 24px;
+    position: relative;
+    top: -2px;
+  }
+
+  .phone {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 5px 0 5px 5px;
+
+    @media (min-width: $breakpoint-medium) {
+      font-size: 18px;
+    }
+  }
+
+  .hours {
+    margin-top: 8px;
+    margin-bottom: 20px;
+
+    .title {
+      position: relative;
+      background-color: $yellow;
+      font-size: 16px;
+      outline: none;
+      border: none;
+      border-bottom: 1px solid black;
+      padding: 0 0 3px 0;
+      margin-bottom: 5px;
+
+      &::after {
+        content: "\f0dd";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        position: absolute;
+        top: -2px;
+        right: -15px;
+      }
+    }//.title
+    .list {
+      display: none;
+      padding-left: 10px;
+
+      p {
+        font-size: 14px;
+        line-height: 1.4;
+      }
+    }//.list
+  }//.hours
+
+  .bottom-bar {
+    width: 100%;
+    background-color: $maroon;
+    border-top: 1px solid $basewhite;
+    color: $basewhite;
+    font-size: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 10px 0 8px 0;
+
+    @media (min-width: $breakpoint-small) {
+      font-size: 14px;
+      padding-top: 12px;
+    }
+  }//.bottom-bar
+
+}//footer

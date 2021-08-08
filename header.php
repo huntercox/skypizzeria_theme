@@ -14,33 +14,53 @@
 	</head>
 
 	<body <?php body_class(); ?>>
-	<!-- INJECT VueJS  -->
-		<div id="vue-wrapper">
+
+		<div id="fb-root"></div>
+		<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v11.0" nonce="iaNS7Pez"></script>
 
 	<!-- START: Grid-Layout -->
 		<div class="grid-container">
 
 		<header class="header" role="banner">
-			<div class="header__inner">
+			<?php
+				if ( is_front_page() ):
+					echo '<h1 id="logo"><a href="'.home_url().'" rel="nofollow">Sky Pizzeria</a></h1>';
+				else:
+					echo '<p id="logo"><a href="'.home_url().'" rel="nofollow">Sky Pizzeria</a></p>';
+				endif;
 
-				<h1 id="logo" class="h1"><a href="<?php echo home_url(); ?>" rel="nofollow"><?php bloginfo('name'); ?></a></h1>
+			?>
 
-				<button class="hamburger hamburger--spin" type="button">
-					<span class="hamburger-box">
-						<span class="hamburger-inner"></span>
-					</span>
-				</button>
+			<?php
+				// $phone = get_field('phone_number', 'option');
+				// echo '<a class="phone" href="'.$phone.'">'.$phone.'</a>';
+			?>
 
-				<nav id="navMenu" role="navigation">
-					<?php
-						wp_nav_menu(
-							array(
-								'menu' => 'header-menu',
-								'container' => 'ul'
-							)
-						);
-					?>
-				</nav>
+			<img class="pizza-icon" src="<?php echo get_template_directory_uri().'/assets/img/pizza-icon.png';?>"/>
 
-			</div><!-- /.header__inner -->
+			<div class="header__bar">
+				<?php
+					$hours = get_field('hours', 'option');
+					echo '<p class="hours">'.$hours.'</p>';
+				?>
+			</div><!-- /.header__bar -->
+
+			<!-- <button class="hamburger hamburger--spin" type="button">
+				<span class="hamburger-box">
+					<span class="hamburger-inner"></span>
+				</span>
+			</button> -->
+
+			<!-- <nav id="navMenu" role="navigation"> -->
+				<?php
+					// wp_nav_menu(
+					// 	array(
+					// 		'menu' => 'header-menu',
+					// 		'container' => 'ul'
+					// 	)
+					// );
+				?>
+			<!-- </nav> -->
 		</header>
+
+		<main id="main" role="main">

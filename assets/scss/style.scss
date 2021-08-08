@@ -1,14 +1,41 @@
 @import 'variables';
 
-// MiniReset.CSS
-@import '../../node_modules/minireset.css/minireset.sass';
+// ===================================
+// EXTERNAL
+// ===================================
+  // MiniReset.CSS
+  @import '../../node_modules/minireset.css/minireset.sass';
 
-// Hamburger Menu
-@import '../../node_modules/hamburgers/_sass/hamburgers/hamburgers';
+  // Hamburger Menu
+  @import '../../node_modules/hamburgers/_sass/hamburgers/hamburgers';
 
+  // Slick-Slider
+  @import '../../node_modules/slick-carousel/slick/slick.scss';
+  @import '../../node_modules/slick-carousel/slick/slick-theme.scss';
 
+  // Featherlight
+  @import './node_modules/featherlight/release/featherlight.min.css';
+
+  // FontAwesome
+  @import './node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss';
+  @import './node_modules/@fortawesome/fontawesome-free/scss/solid.scss';
+  @import './node_modules/@fortawesome/fontawesome-free/scss/brands.scss';
+// ===================================
 
 @import 'typography';
 @import 'layout';
-@import 'header';
-@import 'footer';
+
+// Components
+@import 'components/forms';
+
+// Parts
+@import 'parts/header';
+@import 'parts/footer';
+
+// Pages
+@import 'pages/home';
+@import 'pages/menu';
+
+// Templates
+@import 'templates/single-page';
+@import 'templates/single-product';

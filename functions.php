@@ -1,30 +1,77 @@
 <?php
 // ===================================================
+// Remove default jQuery from frontend of WordPress
+// ===================================================
+  // function sp_init() {
+  //   if ( ! is_admin() ) {
+  //       wp_deregister_script('jquery');
+  //       wp_register_script('jquery', false);
+  //   }
+  // }
+  // add_action('init', 'sp_init');
+
+
+// ===================================================
 // Enqueue Assets
 // ===================================================
-  function tli_register_assets() {
+  function sp_register_assets() {
     // Stylesheets
       wp_enqueue_style(
         'main-stylesheet',
         get_stylesheet_uri() // theme/style.css
       );
 
-    // Scripts
+    // Main
       wp_enqueue_script(
-        'main-script',
+        'main',
         get_template_directory_uri() . '/assets/js/main.js',
         array(),
-        '1.0.0',
+        null,
         false
-     );
+      );
+
+    // Register Slick Slider JS
+      wp_register_script(
+        'slick-js',
+        get_template_directory_uri() . '/node_modules/slick-carousel/slick/slick.min.js',
+        array('jquery', 'main'),
+        null,
+        true
+      );
+
+    // Initialize Slick
+      wp_register_script(
+        'slick-init',
+        get_template_directory_uri() . '/assets/js/slick-init.js',
+        array('slick-js'),
+        null,
+        true
+      );
+
+    // Initialize Featherlight
+      wp_register_script(
+        'featherlight-js',
+        get_template_directory_uri() . '/node_modules/featherlight/release/featherlight.min.js',
+        array('jquery'),
+        null,
+        false
+      );
+
+    // Home slider
+      if ( is_front_page() ) {
+        wp_enqueue_script('slick-js');
+        wp_enqueue_script('featherlight-js');
+        wp_enqueue_script('slick-init');
+      }
+
   }
-  add_action( 'wp_enqueue_scripts', 'tli_register_assets' );
+  add_action( 'wp_enqueue_scripts', 'sp_register_assets' );
 
 
 // ===================================================
 // Nav Menu
 // ===================================================
-  function tli_register_navmenu() {
+  function sp_register_navmenu() {
     // Header Menu
       register_nav_menus(
         array(
@@ -32,7 +79,7 @@
         )
       );
   }
-  add_action( 'init', 'tli_register_navmenu' );
+  add_action( 'init', 'sp_register_navmenu' );
 
 
 // ===================================================
@@ -49,3 +96,21 @@
     ));
 
   }
+
+
+// ===================================================
+// Custom Image Sizes
+// ===================================================
+  function sp_theme_setup() {
+    // Home page slider
+    add_image_size( 'homepage-slider', 1200, 400, true ); // (cropped)
+  }
+  add_action( 'after_setup_theme', 'sp_theme_setup' );
+
+
+  function sp_customize_wysiwyg($args) {
+    // Just omit h1 from the list
+    $args['block_formats'] = 'Paragraph=p;Heading 2=h2;Heading 3=h3;Heading 4=h4';
+    return $args;
+  }
+  add_filter('tiny_mce_before_init', 'sp_customize_wysiwyg' );

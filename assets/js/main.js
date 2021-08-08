@@ -9,5 +9,17 @@ window.onload = function () {
       nav.classList.toggle('showNav');
     }, false);
   }
+}
 
+function toggleHours() {
+  const hoursList = document.querySelector('.hours .list');
+  const hoursBtn = document.querySelector('.hours .title');
+
+  if (hoursList.style.display === "none") {
+    hoursList.style.display = "block";
+    hoursBtn.classList.add('opened');
+  } else {
+    hoursList.style.display = "none";
+    hoursBtn.classList.remove('opened');
+  }
 }

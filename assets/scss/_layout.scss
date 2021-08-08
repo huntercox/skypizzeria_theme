@@ -3,7 +3,7 @@ html, body {
   height: 100%;
 }
 body {
-  background-color: $lightgray;
+  background-color: $basewhite;
 }
 
 .grid-container {
@@ -13,10 +13,31 @@ body {
   grid-template-rows: auto 1fr auto;
 }
 
-header {
-  background-color: $black;
+.container {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
 
-}
+  // Small devices (landscape phones, 576px and up)
+  @media (min-width: $breakpoint-small) {
+    max-width: $breakpoint-small;
+  }
+
+  // Medium devices (tablets, 768px and up)
+  @media (min-width: $breakpoint-medium) {
+    max-width: $breakpoint-medium;
+  }
+
+  // Large devices (desktops, 992px and up)
+  @media (min-width: $breakpoint-large) {
+    max-width: $breakpoint-large;
+  }
+
+  // Extra large devices (large desktops, 1200px and up)
+  @media (min-width: $breakpoint-xl) {
+    max-width: $breakpoint-xl;
+  }
+}//.container
 
 main {
   grid-column: 1 / span 5;
@@ -24,9 +45,5 @@ main {
 }
 
 footer {
-  background-color: $gray;
-  border-top: 1px solid $darkgray;
   grid-column: 1 / span 5;
-  margin-top: 80px;
-  padding: 0 10px;
 }

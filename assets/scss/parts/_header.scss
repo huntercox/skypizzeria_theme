@@ -1,0 +1,99 @@
+.header {
+  background-color: $brightblue;
+  position: relative;
+  z-index: 99;
+  overflow-y: hidden;
+
+  // &__inner {
+  //   margin: 0 10px;
+  //   display: flex;;
+  //   justify-content: space-between;
+  // }
+
+  // Logo / Company Name
+  #logo {
+    font-size: 26px;
+    font-family: $copper;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    margin-left: 8px;
+
+    @media (min-width: 375px) {
+      line-height: 1.6;
+      padding-top: 3px;
+    }
+    @media (min-width: $breakpoint-small) {
+      font-size: 34px;
+      line-height: 1.4;
+      letter-spacing: 1px;
+      margin-left: 12px;
+    }
+
+    a {
+      color: $black;
+      text-shadow: 0 0 2px $basewhite;
+    }
+  }//#logo
+
+  &__bar {
+    background-color: $maroon;
+    border-bottom: 1px solid darken($red, 10);
+    color: $white;
+
+    .hours {
+      font-size: 12px;
+      padding: 6px 0 3px 0;
+      margin-left: 10px;
+
+      @media (min-width: 375px) {
+        font-size: 14px;
+        padding: 6px 0 5px 0;
+      }
+      @media (min-width: $breakpoint-small) {
+        font-size: 15px;
+        margin-left: 14px;
+        padding: 7px 0 5px 0;
+      }
+    }//.hours
+
+    .phone {
+      padding: 12px 12px 10px 12px;
+      margin-right: -10px;
+
+      &:before {
+        display: none;
+        content: "Order Now:";
+        color: $yellow;
+        font-size: 12px;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-right: 5px;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        left: auto;
+        right: auto;
+      }
+    }//.call-now
+
+  }//.header__bar
+
+  .pizza-icon {
+    position: absolute;
+    width: 100px;
+    height: auto;
+    bottom: 1px;
+    right: 0;
+
+    @media (min-width: 375px) {
+      width: 130px;
+      right: 15px;
+    }
+    @media (min-width: $breakpoint-small) {
+      width: 180px;
+      bottom: -15px;
+    }
+  }//.pizza-icon
+
+  // @import 'nav';
+}//.header
