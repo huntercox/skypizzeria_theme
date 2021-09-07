@@ -5611,7 +5611,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Arial Black'; }
+  font-family: "copperplate_ccbold"; }
 
 html, body {
   width: 100%;
@@ -5655,7 +5655,7 @@ form > p {
 
 form label {
   text-align: left;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   text-transform: capitalize; }
   @media (min-width: 768px) {
@@ -5664,6 +5664,7 @@ form label {
 
 form input[type="text"], form input[type="email"] {
   width: 100%;
+  font-size: 16px;
   padding: 5px 5px 4px 6px;
   border: 1px solid #a29b87; }
   @media (min-width: 768px) {
@@ -5675,6 +5676,7 @@ form input[type="text"], form input[type="email"] {
     border-color: #24a4c8; }
 
 form input[type="submit"] {
+  -webkit-appearance: none;
   background-color: #a73421;
   border-radius: 0;
   border: 1px solid #181214;
@@ -5769,17 +5771,25 @@ footer {
   footer .container {
     height: auto;
     display: flex;
+    flex-direction: column;
     justify-content: space-between; }
+    @media (min-width: 768px) {
+      footer .container {
+        flex-direction: row; } }
     @media (min-width: 992px) {
       footer .container {
         justify-content: space-around; } }
   footer .left {
-    padding: 0 15px; }
+    padding: 0 15px;
+    text-align: center; }
+    @media (min-width: 768px) {
+      footer .left {
+        text-align: left; } }
   footer .right {
     padding: 0 15px 15px 15px; }
   footer .site-name {
-    font-size: 18px;
-    font-family: "copperplate_ccregular";
+    font-size: 28px;
+    font-family: "copperplate_ccbold";
     letter-spacing: 0.6px;
     text-transform: uppercase; }
     @media (min-width: 375px) {
@@ -5799,7 +5809,7 @@ footer {
       color: #181214;
       text-shadow: 0 0 2px white; }
   footer .address {
-    font-size: 14px;
+    font-size: 18px;
     font-weight: normal;
     line-height: 1.2;
     margin-top: 6px;
@@ -5810,16 +5820,16 @@ footer {
         font-size: 16px; } }
   footer .facebook {
     color: #3d6076;
-    font-size: 28px;
-    padding-left: 5px; }
+    font-size: 42px;
+    margin: 6px 15px 4px 5px; }
   footer .email {
     color: #a29b87;
-    font-size: 24px;
+    font-size: 36px;
     position: relative;
     top: -2px; }
   footer .phone {
     display: block;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: bold;
     margin: 5px 0 5px 5px; }
     @media (min-width: 768px) {
@@ -5831,7 +5841,7 @@ footer {
     footer .hours .title {
       position: relative;
       background-color: #f0e885;
-      font-size: 16px;
+      font-size: 20px;
       outline: none;
       border: none;
       border-bottom: 1px solid black;
@@ -5850,6 +5860,11 @@ footer {
       footer .hours .list p {
         font-size: 14px;
         line-height: 1.4; }
+  footer .fb-feed .fb_iframe_widget span,
+  footer .fb-feed .fb_iframe_widget iframe {
+    width: 400px !important; }
+  footer .fb-feed ._2p3a {
+    width: 400px !important; }
   footer .bottom-bar {
     width: 100%;
     background-color: #a73421;

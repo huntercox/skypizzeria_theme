@@ -1,6 +1,8 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
-const del = require('del');
+const cssnano = require('cssnano');
+const postcss = require('gulp-postcss');
+const autoprefixer = require('autoprefixer');
 const browserSync = require('browser-sync').create();
 
 // compile scss to css
@@ -14,6 +16,16 @@ function styles() {
     .pipe(gulp.dest('./'))
     // 4. stream changes to all browsers
     .pipe(browserSync.stream())
+}
+
+function refine() {
+  const plugins = [
+    autoprefixer({ browsers: ['last 1 version'] }),
+    cssnano()
+  ];
+  return gulp.src('./style.css')
+    .pipe(postcss(plugins))
+    .pipe(gulp.dest('./'));
 }
 
 function watch() {
@@ -32,4 +44,5 @@ function watch() {
 }
 
 exports.styles = styles;
+exports.refine = refine;
 exports.watch = watch;
